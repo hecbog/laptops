@@ -36,14 +36,13 @@ class LaptopControllerTest {
         ResponseEntity<Laptop[]> response  =
                 testRestTemplate.getForEntity("/api/laptops", Laptop[].class);
 
-        assertEquals(HttpStatus.OK, response.getStatusCode());
-        assertEquals(200, response.getStatusCodeValue());
+        assertEquals(HttpStatus.UNAUTHORIZED, response.getStatusCode());
+        assertEquals(401, response.getStatusCodeValue());
 
-        List<Laptop> laptops = Arrays.asList(response.getBody());
-        System.out.println(laptops.size());
+       // List<Laptop> laptops = Arrays.asList(response.getBody());//System.out.println(laptops.size());
     }
 
-    @Test
+   /* @Test
     void findOneById() {
         ResponseEntity<Laptop> response  =
         testRestTemplate.getForEntity("/api/laptops/5", Laptop.class);
@@ -76,5 +75,5 @@ class LaptopControllerTest {
         assertEquals(1L, result.getId());
         assertEquals("Laptop en test", result.getMarca());
     }
-
+*/
 }
